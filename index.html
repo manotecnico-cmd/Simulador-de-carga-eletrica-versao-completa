@@ -299,7 +299,10 @@ async function gerarPDF(){
 let cliente = document.getElementById("cliente").value;
 let local = document.getElementById("local").value;
 let dataInput = document.getElementById("data").value;
-let data = dataInput ? new Date(dataInput).toLocaleDateString() : "";
+
+let data = dataInput 
+  ? dataInput.split("-").reverse().join("/") 
+  : "";
 
 const { jsPDF } = window.jspdf;
 const doc = new jsPDF();
